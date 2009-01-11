@@ -1,0 +1,30 @@
+<h1 class="page-title">Select a database</h1>
+
+<ul id="list">
+  <% @databases.each do |db, tables| %>
+    <li>
+      <div style="float: right;">
+        <a href="/databases/<%= db %>" class="database-link">select <img src="/go.png" style="vertical-align: top;" /></a>
+      </div>
+      
+      <a href="/databases/<%= db %>"><%= db %></a><br />
+      <span><%= tables %> tables</span>
+    </li>
+  <% end %>
+</ul>
+
+<% @side = "
+<div class='side-block'>
+  <p>
+    <h1>Databases</h1>
+    <ul>
+      <li>
+        Total of #{@databases.length} databases.
+      </li>
+    </ul>
+  </p>
+  <p class='meta-link'>
+    <a href='/'>change connection</a>
+  </p>
+</div>
+" %>

@@ -1,0 +1,61 @@
+<h1 class="page-title">Connect</h1>
+
+<form action="/databases" method="post">
+<table>
+  <tr>
+    <td>
+      <label for="driver">Driver</label><br />
+    </td>
+    <td>
+      <label for="host">User</label><br />
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      <label for="host">Password</label><br />
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      <label for="host">Host</label><br />
+    </td>
+    <td>
+      <label for="port">Port or Socket</label><br />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <select class="big" name="driver">
+        <% @drivers.each do |d| %>
+          <option><%= d %></option>
+        <% end %>
+      </select>
+    </td>
+    <td>
+      <input type="text" name="user" class="big" size="10" />
+    </td>
+    <td>
+      <span class="big">:</span>
+    </td>
+    <td>
+      <input type="text" name="password" class="big" size="10" />
+    </td>
+    <td>
+      <span class="big">@</span>
+    </td>
+    <td style="width: 100%;">
+      <input type="text" name="host" class="big text" />
+    </td>
+    <td>
+      <input type="text" name="socket" class="big" size="10" />
+    </td>
+    
+  </tr>
+</table>
+
+<div id="meta" class="buttons">
+  <input type="submit" value="Connect" />
+</div>
+</form>

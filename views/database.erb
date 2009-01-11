@@ -1,0 +1,47 @@
+<h1 class="page-title">Overview</h1>
+<table class="top">
+  <tr>
+    <th>
+      Tables
+    </th>
+    <th>
+      Total Size
+    </th>
+    <th>
+      Quick Query
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <%= @table_count %>
+    </td>
+    <td>
+      13.0kb
+    </td>
+    <td style="width: 100%">
+      <input type="text" class="big text" value="SELECT * FROM <%= @database %>;" />
+    </td>
+  </tr>
+</table>
+
+<h2>Tables</h2>
+<table class="listing">
+  <tr>
+    <th>Name</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th class="last">Schema</th>
+  </tr>
+  <% while @table_reader.next! %>
+  <tr>
+    <td class="dark bigger"><%= @table_reader.values[0] %></td>
+    <td><%= @table_reader.values[4] %> records</td>
+    <td style="text-align: center;">insert new | truncate table</td>
+    <td><%= @table_reader.values[1] %></td>
+    <td><%= (@table_reader.values[8].to_f / 1000) %>kb</td>
+    <td>show | edit</td>
+  </tr>
+  <% end %>
+</table>
